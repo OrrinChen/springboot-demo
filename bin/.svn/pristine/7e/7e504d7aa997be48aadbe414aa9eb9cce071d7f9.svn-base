@@ -1,0 +1,17 @@
+# OFF|FATAL|ERROR|WARN|INFO|DEBUG|TRACE|ALL
+
+#log4j.rootLogger=info, stdout
+
+#log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+#log4j.appender.stdout.Target=System.err
+#log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+#log4j.appender.stdout.layout.ConversionPattern=%d %l %m %n
+
+
+log4j.rootLogger=info,logfile
+
+log4j.appender.logfile=org.apache.log4j.DailyRollingFileAppender  
+log4j.appender.logfile.File= ./log/log_  
+log4j.appender.logfile.DatePattern=yyyy-MM-dd'.log'  
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout  
+log4j.appender.logfile.layout.ConversionPattern=%d %l %m %n

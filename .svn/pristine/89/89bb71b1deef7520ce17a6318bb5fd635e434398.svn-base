@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.java.mapper.FoodMapper">
+  <resultMap id="BaseResultMap" type="cn.java.entity.Food">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="food_name" jdbcType="VARCHAR" property="foodName" />
+    <result column="food_taste" jdbcType="VARCHAR" property="foodTaste" />
+    <result column="food_price" jdbcType="REAL" property="foodPrice" />
+    <result column="food_description" jdbcType="VARCHAR" property="foodDescription" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, food_name, food_taste, food_price, food_description
+  </sql>
+  
+  <!-- <insert id="insertFood">
+  	insert  into `foods`(`id`,`food_name`,`food_taste`,`food_price`,`food_description`) values (2,'棍子烧肉','1',20.00,'太难吃')
+  </insert> -->
+  
+</mapper>

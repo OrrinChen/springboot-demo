@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.java.mapper.OaerpMapper" >
+  <resultMap id="BaseResultMap" type="cn.java.entity.Oaerp" >
+    <id column="id" property="id" jdbcType="NVARCHAR" />
+    <result column="status" property="status" jdbcType="NVARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="sourcetable" property="sourcetable" jdbcType="NVARCHAR" />
+    <result column="sourceid" property="sourceid" jdbcType="NVARCHAR" />
+    <result column="sourcejson" property="sourcejson" jdbcType="NVARCHAR" />
+    <result column="changelog" property="changelog" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, status, time, sourcetable, sourceid, sourcejson, changelog
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_erp
+    where id = #{id,jdbcType=NVARCHAR}
+  </select>
+  <select id="selectMaxSourceId" resultType="int">
+    select 
+      --IFNULL(max(cast([sourceid] as numeric)), 0)
+      COALESCE(max(cast([sourceid] as numeric)),0)
+    from oa_erp
+  </select>
+  <select id="selectMaxTime"  parameterType="java.lang.String" resultType="Date">
+  	select
+  	  /*注意更改逻辑 
+      --COALESCE(max(time),GETDATE())
+      --此字段没有值时，取当前时间往前7天
+      */
+      COALESCE(max(time),GETDATE()-7)
+    from oa_erp
+    where sourcetable = #{sourcetable,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from oa_erp
+    where id = #{id,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.java.entity.Oaerp" >
+    insert into oa_erp (id, status, time, 
+      sourcetable, sourceid, sourcejson, 
+      changelog,targettable,targetid,targetjson,changetime)
+    values (#{id,jdbcType=NVARCHAR}, #{status,jdbcType=NVARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{sourcetable,jdbcType=NVARCHAR}, #{sourceid,jdbcType=NVARCHAR}, #{sourcejson,jdbcType=NVARCHAR}, 
+      #{changelog,jdbcType=NVARCHAR},#{targettable,jdbcType=NVARCHAR},#{targetid,jdbcType=NVARCHAR},#{targetjson,jdbcType=NVARCHAR}, #{changetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.java.entity.Oaerp" >
+    insert into oa_erp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="sourcetable != null" >
+        sourcetable,
+      </if>
+      <if test="sourceid != null" >
+        sourceid,
+      </if>
+      <if test="sourcejson != null" >
+        sourcejson,
+      </if>
+      <if test="changelog != null" >
+        changelog,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=NVARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=NVARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourcetable != null" >
+        #{sourcetable,jdbcType=NVARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        #{sourceid,jdbcType=NVARCHAR},
+      </if>
+      <if test="sourcejson != null" >
+        #{sourcejson,jdbcType=NVARCHAR},
+      </if>
+      <if test="changelog != null" >
+        #{changelog,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.java.entity.Oaerp" >
+    update oa_erp
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=NVARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourcetable != null" >
+        sourcetable = #{sourcetable,jdbcType=NVARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        sourceid = #{sourceid,jdbcType=NVARCHAR},
+      </if>
+      <if test="sourcejson != null" >
+        sourcejson = #{sourcejson,jdbcType=NVARCHAR},
+      </if>
+      <if test="changelog != null" >
+        changelog = #{changelog,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.java.entity.Oaerp" >
+    update oa_erp
+    set status = #{status,jdbcType=NVARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      sourcetable = #{sourcetable,jdbcType=NVARCHAR},
+      sourceid = #{sourceid,jdbcType=NVARCHAR},
+      sourcejson = #{sourcejson,jdbcType=NVARCHAR},
+      changelog = #{changelog,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=NVARCHAR}
+  </update>
+  <!-- 根据条件查询 -->
+  <select id="getOaerpDataByCondition" parameterType="java.lang.String" resultType="cn.java.entity.Oaerp">
+  	select * from oa_erp 
+  	where 
+  	sourcetable = #{arg0,jdbcType=NVARCHAR}
+  	<if test="arg1 != ''">
+	  	and status = #{arg1,jdbcType=NVARCHAR}
+  	</if>
+  	<if test="arg2 != ''">
+	  	<!-- and targetid like #{arg2,jdbcType=NVARCHAR} -->
+	  	<bind name="targetid" value="'%' + arg2 + '%'"/>
+    	and targetid like #{targetid,jdbcType=NVARCHAR}
+  	</if>
+  	order by changetime desc
+  </select>
+</mapper>

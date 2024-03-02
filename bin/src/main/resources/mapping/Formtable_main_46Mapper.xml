@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.java.mapper.Formtable_main_46Mapper" >
+  <resultMap id="BaseResultMap" type="cn.java.entity.Formtable_main_46" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="requestId" property="requestid" jdbcType="INTEGER" />
+    <result column="dh" property="dh" jdbcType="VARCHAR" />
+    <result column="htbh" property="htbh" jdbcType="VARCHAR" />
+    <result column="qdrq" property="qdrq" jdbcType="CHAR" />
+    <result column="jflxfs" property="jflxfs" jdbcType="VARCHAR" />
+    <result column="jfcgy" property="jfcgy" jdbcType="INTEGER" />
+    <result column="yfgf" property="yfgf" jdbcType="VARCHAR" />
+    <result column="yflxfs" property="yflxfs" jdbcType="VARCHAR" />
+    <result column="yflxr" property="yflxr" jdbcType="VARCHAR" />
+    <result column="yfdz" property="yfdz" jdbcType="VARCHAR" />
+    <result column="zje" property="zje" jdbcType="DECIMAL" />
+    <result column="sd" property="sd" jdbcType="INTEGER" />
+    <result column="sfyp" property="sfyp" jdbcType="INTEGER" />
+    <result column="glyfypsqd" property="glyfypsqd" jdbcType="VARCHAR" />
+    <result column="yfgf1" property="yfgf1" jdbcType="INTEGER" />
+    <result column="yflxr1" property="yflxr1" jdbcType="INTEGER" />
+    <result column="check1" property="check1" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.java.entity.Formtable_main_46WithBLOBs" extends="BaseResultMap" >
+    <result column="ms" property="ms" jdbcType="LONGVARCHAR" />
+    <result column="tk" property="tk" jdbcType="LONGVARCHAR" />
+    <result column="mswz" property="mswz" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, requestId, dh, htbh, qdrq, jflxfs, jfcgy, yfgf, yflxfs, yflxr, yfdz, zje, sd, 
+    sfyp, glyfypsqd, yfgf1, yflxr1, check1
+  </sql>
+  <sql id="Blob_Column_List" >
+    ms, tk, mswz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from formtable_main_46
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByRequestid" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from formtable_main_46
+    where requestid = #{requestid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from formtable_main_46
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.java.entity.Formtable_main_46WithBLOBs" >
+    insert into formtable_main_46 (id, requestId, dh, 
+      htbh, qdrq, jflxfs, jfcgy, 
+      yfgf, yflxfs, yflxr, 
+      yfdz, zje, sd, sfyp, 
+      glyfypsqd, yfgf1, yflxr1, 
+      check1, ms, tk, 
+      mswz)
+    values (#{id,jdbcType=INTEGER}, #{requestid,jdbcType=INTEGER}, #{dh,jdbcType=VARCHAR}, 
+      #{htbh,jdbcType=VARCHAR}, #{qdrq,jdbcType=CHAR}, #{jflxfs,jdbcType=VARCHAR}, #{jfcgy,jdbcType=INTEGER}, 
+      #{yfgf,jdbcType=VARCHAR}, #{yflxfs,jdbcType=VARCHAR}, #{yflxr,jdbcType=VARCHAR}, 
+      #{yfdz,jdbcType=VARCHAR}, #{zje,jdbcType=DECIMAL}, #{sd,jdbcType=INTEGER}, #{sfyp,jdbcType=INTEGER}, 
+      #{glyfypsqd,jdbcType=VARCHAR}, #{yfgf1,jdbcType=INTEGER}, #{yflxr1,jdbcType=INTEGER}, 
+      #{check1,jdbcType=CHAR}, #{ms,jdbcType=LONGVARCHAR}, #{tk,jdbcType=LONGVARCHAR}, 
+      #{mswz,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.java.entity.Formtable_main_46WithBLOBs" >
+    insert into formtable_main_46
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="requestid != null" >
+        requestId,
+      </if>
+      <if test="dh != null" >
+        dh,
+      </if>
+      <if test="htbh != null" >
+        htbh,
+      </if>
+      <if test="qdrq != null" >
+        qdrq,
+      </if>
+      <if test="jflxfs != null" >
+        jflxfs,
+      </if>
+      <if test="jfcgy != null" >
+        jfcgy,
+      </if>
+      <if test="yfgf != null" >
+        yfgf,
+      </if>
+      <if test="yflxfs != null" >
+        yflxfs,
+      </if>
+      <if test="yflxr != null" >
+        yflxr,
+      </if>
+      <if test="yfdz != null" >
+        yfdz,
+      </if>
+      <if test="zje != null" >
+        zje,
+      </if>
+      <if test="sd != null" >
+        sd,
+      </if>
+      <if test="sfyp != null" >
+        sfyp,
+      </if>
+      <if test="glyfypsqd != null" >
+        glyfypsqd,
+      </if>
+      <if test="yfgf1 != null" >
+        yfgf1,
+      </if>
+      <if test="yflxr1 != null" >
+        yflxr1,
+      </if>
+      <if test="check1 != null" >
+        check1,
+      </if>
+      <if test="ms != null" >
+        ms,
+      </if>
+      <if test="tk != null" >
+        tk,
+      </if>
+      <if test="mswz != null" >
+        mswz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="requestid != null" >
+        #{requestid,jdbcType=INTEGER},
+      </if>
+      <if test="dh != null" >
+        #{dh,jdbcType=VARCHAR},
+      </if>
+      <if test="htbh != null" >
+        #{htbh,jdbcType=VARCHAR},
+      </if>
+      <if test="qdrq != null" >
+        #{qdrq,jdbcType=CHAR},
+      </if>
+      <if test="jflxfs != null" >
+        #{jflxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="jfcgy != null" >
+        #{jfcgy,jdbcType=INTEGER},
+      </if>
+      <if test="yfgf != null" >
+        #{yfgf,jdbcType=VARCHAR},
+      </if>
+      <if test="yflxfs != null" >
+        #{yflxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="yflxr != null" >
+        #{yflxr,jdbcType=VARCHAR},
+      </if>
+      <if test="yfdz != null" >
+        #{yfdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zje != null" >
+        #{zje,jdbcType=DECIMAL},
+      </if>
+      <if test="sd != null" >
+        #{sd,jdbcType=INTEGER},
+      </if>
+      <if test="sfyp != null" >
+        #{sfyp,jdbcType=INTEGER},
+      </if>
+      <if test="glyfypsqd != null" >
+        #{glyfypsqd,jdbcType=VARCHAR},
+      </if>
+      <if test="yfgf1 != null" >
+        #{yfgf1,jdbcType=INTEGER},
+      </if>
+      <if test="yflxr1 != null" >
+        #{yflxr1,jdbcType=INTEGER},
+      </if>
+      <if test="check1 != null" >
+        #{check1,jdbcType=CHAR},
+      </if>
+      <if test="ms != null" >
+        #{ms,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tk != null" >
+        #{tk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="mswz != null" >
+        #{mswz,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.java.entity.Formtable_main_46WithBLOBs" >
+    update formtable_main_46
+    <set >
+      <if test="requestid != null" >
+        requestId = #{requestid,jdbcType=INTEGER},
+      </if>
+      <if test="dh != null" >
+        dh = #{dh,jdbcType=VARCHAR},
+      </if>
+      <if test="htbh != null" >
+        htbh = #{htbh,jdbcType=VARCHAR},
+      </if>
+      <if test="qdrq != null" >
+        qdrq = #{qdrq,jdbcType=CHAR},
+      </if>
+      <if test="jflxfs != null" >
+        jflxfs = #{jflxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="jfcgy != null" >
+        jfcgy = #{jfcgy,jdbcType=INTEGER},
+      </if>
+      <if test="yfgf != null" >
+        yfgf = #{yfgf,jdbcType=VARCHAR},
+      </if>
+      <if test="yflxfs != null" >
+        yflxfs = #{yflxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="yflxr != null" >
+        yflxr = #{yflxr,jdbcType=VARCHAR},
+      </if>
+      <if test="yfdz != null" >
+        yfdz = #{yfdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zje != null" >
+        zje = #{zje,jdbcType=DECIMAL},
+      </if>
+      <if test="sd != null" >
+        sd = #{sd,jdbcType=INTEGER},
+      </if>
+      <if test="sfyp != null" >
+        sfyp = #{sfyp,jdbcType=INTEGER},
+      </if>
+      <if test="glyfypsqd != null" >
+        glyfypsqd = #{glyfypsqd,jdbcType=VARCHAR},
+      </if>
+      <if test="yfgf1 != null" >
+        yfgf1 = #{yfgf1,jdbcType=INTEGER},
+      </if>
+      <if test="yflxr1 != null" >
+        yflxr1 = #{yflxr1,jdbcType=INTEGER},
+      </if>
+      <if test="check1 != null" >
+        check1 = #{check1,jdbcType=CHAR},
+      </if>
+      <if test="ms != null" >
+        ms = #{ms,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="tk != null" >
+        tk = #{tk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="mswz != null" >
+        mswz = #{mswz,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.java.entity.Formtable_main_46WithBLOBs" >
+    update formtable_main_46
+    set requestId = #{requestid,jdbcType=INTEGER},
+      dh = #{dh,jdbcType=VARCHAR},
+      htbh = #{htbh,jdbcType=VARCHAR},
+      qdrq = #{qdrq,jdbcType=CHAR},
+      jflxfs = #{jflxfs,jdbcType=VARCHAR},
+      jfcgy = #{jfcgy,jdbcType=INTEGER},
+      yfgf = #{yfgf,jdbcType=VARCHAR},
+      yflxfs = #{yflxfs,jdbcType=VARCHAR},
+      yflxr = #{yflxr,jdbcType=VARCHAR},
+      yfdz = #{yfdz,jdbcType=VARCHAR},
+      zje = #{zje,jdbcType=DECIMAL},
+      sd = #{sd,jdbcType=INTEGER},
+      sfyp = #{sfyp,jdbcType=INTEGER},
+      glyfypsqd = #{glyfypsqd,jdbcType=VARCHAR},
+      yfgf1 = #{yfgf1,jdbcType=INTEGER},
+      yflxr1 = #{yflxr1,jdbcType=INTEGER},
+      check1 = #{check1,jdbcType=CHAR},
+      ms = #{ms,jdbcType=LONGVARCHAR},
+      tk = #{tk,jdbcType=LONGVARCHAR},
+      mswz = #{mswz,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.java.entity.Formtable_main_46" >
+    update formtable_main_46
+    set requestId = #{requestid,jdbcType=INTEGER},
+      dh = #{dh,jdbcType=VARCHAR},
+      htbh = #{htbh,jdbcType=VARCHAR},
+      qdrq = #{qdrq,jdbcType=CHAR},
+      jflxfs = #{jflxfs,jdbcType=VARCHAR},
+      jfcgy = #{jfcgy,jdbcType=INTEGER},
+      yfgf = #{yfgf,jdbcType=VARCHAR},
+      yflxfs = #{yflxfs,jdbcType=VARCHAR},
+      yflxr = #{yflxr,jdbcType=VARCHAR},
+      yfdz = #{yfdz,jdbcType=VARCHAR},
+      zje = #{zje,jdbcType=DECIMAL},
+      sd = #{sd,jdbcType=INTEGER},
+      sfyp = #{sfyp,jdbcType=INTEGER},
+      glyfypsqd = #{glyfypsqd,jdbcType=VARCHAR},
+      yfgf1 = #{yfgf1,jdbcType=INTEGER},
+      yflxr1 = #{yflxr1,jdbcType=INTEGER},
+      check1 = #{check1,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

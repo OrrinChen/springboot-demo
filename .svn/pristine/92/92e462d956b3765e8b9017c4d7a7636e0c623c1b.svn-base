@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 注意：namespace与GoodMapp接口保持一致，可通过Ctrl点击链接检验 -->
+<mapper namespace="cn.java.mapper.GoodMapper">
+  <!-- 注意：type与entity持久化类保持一致，可通过Ctrl点击链接检验 -->
+  <resultMap id="BaseResultMap" type="cn.java.entity.Good">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="good_name" jdbcType="VARCHAR" property="goodName" />
+    <result column="good_price" jdbcType="VARCHAR" property="goodPrice" />
+    <result column="good_phone" jdbcType="VARCHAR" property="goodPhone" />
+    <result column="good_address" jdbcType="VARCHAR" property="goodAddress" />
+    <result column="good_num" jdbcType="VARCHAR" property="goodNum" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, good_name, good_price, good_phone, good_address, good_num
+  </sql>
+
+  <!-- 注意：id与接口方法保持一致 -->
+  <select id="selectAllGoods" resultMap="BaseResultMap">
+  	SELECT <include refid="Base_Column_List"></include> FROM goods
+  </select>
+  
+</mapper>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.java.mapper.Formtable_main_46_dt1Mapper" >
+  <resultMap id="BaseResultMap" type="cn.java.entity.Formtable_main_46_dt1" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mainid" property="mainid" jdbcType="INTEGER" />
+    <result column="wlbm" property="wlbm" jdbcType="VARCHAR" />
+    <result column="wlmc" property="wlmc" jdbcType="VARCHAR" />
+    <result column="ggjxh" property="ggjxh" jdbcType="VARCHAR" />
+    <result column="dw" property="dw" jdbcType="VARCHAR" />
+    <result column="sl" property="sl" jdbcType="DECIMAL" />
+    <result column="dj" property="dj" jdbcType="DECIMAL" />
+    <result column="je" property="je" jdbcType="DECIMAL" />
+    <result column="jhrq" property="jhrq" jdbcType="CHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="djj" property="djj" jdbcType="DECIMAL" />
+    <result column="jej" property="jej" jdbcType="DECIMAL" />
+    <result column="lsd" property="lsd" jdbcType="DECIMAL" />
+    <result column="ckdj" property="ckdj" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mainid, wlbm, wlmc, ggjxh, dw, sl, dj, je, jhrq, bz, djj, jej, lsd, ckdj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from formtable_main_46_dt1
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <!-- 根据主表id获取明细表list -->
+  <select id="selectByMainid" resultMap="BaseResultMap" parameterType="java.lang.Integer" resultType="cn.java.entity.Formtable_main_46_dt1" >
+    select 
+    <include refid="Base_Column_List" />
+    from formtable_main_46_dt1
+    where mainid = #{mainid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from formtable_main_46_dt1
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.java.entity.Formtable_main_46_dt1" >
+    insert into formtable_main_46_dt1 (id, mainid, wlbm, 
+      wlmc, ggjxh, dw, sl, 
+      dj, je, jhrq, bz, 
+      djj, jej, lsd, ckdj
+      )
+    values (#{id,jdbcType=INTEGER}, #{mainid,jdbcType=INTEGER}, #{wlbm,jdbcType=VARCHAR}, 
+      #{wlmc,jdbcType=VARCHAR}, #{ggjxh,jdbcType=VARCHAR}, #{dw,jdbcType=VARCHAR}, #{sl,jdbcType=DECIMAL}, 
+      #{dj,jdbcType=DECIMAL}, #{je,jdbcType=DECIMAL}, #{jhrq,jdbcType=CHAR}, #{bz,jdbcType=VARCHAR}, 
+      #{djj,jdbcType=DECIMAL}, #{jej,jdbcType=DECIMAL}, #{lsd,jdbcType=DECIMAL}, #{ckdj,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.java.entity.Formtable_main_46_dt1" >
+    insert into formtable_main_46_dt1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainid != null" >
+        mainid,
+      </if>
+      <if test="wlbm != null" >
+        wlbm,
+      </if>
+      <if test="wlmc != null" >
+        wlmc,
+      </if>
+      <if test="ggjxh != null" >
+        ggjxh,
+      </if>
+      <if test="dw != null" >
+        dw,
+      </if>
+      <if test="sl != null" >
+        sl,
+      </if>
+      <if test="dj != null" >
+        dj,
+      </if>
+      <if test="je != null" >
+        je,
+      </if>
+      <if test="jhrq != null" >
+        jhrq,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="djj != null" >
+        djj,
+      </if>
+      <if test="jej != null" >
+        jej,
+      </if>
+      <if test="lsd != null" >
+        lsd,
+      </if>
+      <if test="ckdj != null" >
+        ckdj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mainid != null" >
+        #{mainid,jdbcType=INTEGER},
+      </if>
+      <if test="wlbm != null" >
+        #{wlbm,jdbcType=VARCHAR},
+      </if>
+      <if test="wlmc != null" >
+        #{wlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="ggjxh != null" >
+        #{ggjxh,jdbcType=VARCHAR},
+      </if>
+      <if test="dw != null" >
+        #{dw,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null" >
+        #{sl,jdbcType=DECIMAL},
+      </if>
+      <if test="dj != null" >
+        #{dj,jdbcType=DECIMAL},
+      </if>
+      <if test="je != null" >
+        #{je,jdbcType=DECIMAL},
+      </if>
+      <if test="jhrq != null" >
+        #{jhrq,jdbcType=CHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="djj != null" >
+        #{djj,jdbcType=DECIMAL},
+      </if>
+      <if test="jej != null" >
+        #{jej,jdbcType=DECIMAL},
+      </if>
+      <if test="lsd != null" >
+        #{lsd,jdbcType=DECIMAL},
+      </if>
+      <if test="ckdj != null" >
+        #{ckdj,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.java.entity.Formtable_main_46_dt1" >
+    update formtable_main_46_dt1
+    <set >
+      <if test="mainid != null" >
+        mainid = #{mainid,jdbcType=INTEGER},
+      </if>
+      <if test="wlbm != null" >
+        wlbm = #{wlbm,jdbcType=VARCHAR},
+      </if>
+      <if test="wlmc != null" >
+        wlmc = #{wlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="ggjxh != null" >
+        ggjxh = #{ggjxh,jdbcType=VARCHAR},
+      </if>
+      <if test="dw != null" >
+        dw = #{dw,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null" >
+        sl = #{sl,jdbcType=DECIMAL},
+      </if>
+      <if test="dj != null" >
+        dj = #{dj,jdbcType=DECIMAL},
+      </if>
+      <if test="je != null" >
+        je = #{je,jdbcType=DECIMAL},
+      </if>
+      <if test="jhrq != null" >
+        jhrq = #{jhrq,jdbcType=CHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="djj != null" >
+        djj = #{djj,jdbcType=DECIMAL},
+      </if>
+      <if test="jej != null" >
+        jej = #{jej,jdbcType=DECIMAL},
+      </if>
+      <if test="lsd != null" >
+        lsd = #{lsd,jdbcType=DECIMAL},
+      </if>
+      <if test="ckdj != null" >
+        ckdj = #{ckdj,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.java.entity.Formtable_main_46_dt1" >
+    update formtable_main_46_dt1
+    set mainid = #{mainid,jdbcType=INTEGER},
+      wlbm = #{wlbm,jdbcType=VARCHAR},
+      wlmc = #{wlmc,jdbcType=VARCHAR},
+      ggjxh = #{ggjxh,jdbcType=VARCHAR},
+      dw = #{dw,jdbcType=VARCHAR},
+      sl = #{sl,jdbcType=DECIMAL},
+      dj = #{dj,jdbcType=DECIMAL},
+      je = #{je,jdbcType=DECIMAL},
+      jhrq = #{jhrq,jdbcType=CHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      djj = #{djj,jdbcType=DECIMAL},
+      jej = #{jej,jdbcType=DECIMAL},
+      lsd = #{lsd,jdbcType=DECIMAL},
+      ckdj = #{ckdj,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

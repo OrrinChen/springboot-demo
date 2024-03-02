@@ -1,0 +1,15 @@
+And => 等价于 SQL 中的 and 关键字 例如：findByUsernameAndPassword(String user, Striang pwd)；
+Or => 等价于 SQL 中的 or 关键字，例如：findByUsernameOrAddress(String user, String addr)；
+Between => 等价于 SQL 中的 between 关键字，例如：SalaryBetween(int max, int min)；
+LessThan => 等价于 SQL 中的 "<"，例如： findBySalaryLessThan(int max)；
+GreaterThan => 等价于 SQL 中的">"，例如： findBySalaryGreaterThan(int min)；
+IsNull => 等价于 SQL 中的 "is null"，例如： findByUsernameIsNull()；
+IsNotNull => 等价于 SQL 中的 "is not null"，例如： findByUsernameIsNotNull()；
+NotNull=> 与 IsNotNull 等价；
+Like => 等价于 SQL 中的 "like"，例如： findByUsernameLike(String user)；
+NotLike => 等价于 SQL 中的 "not like"，例如： findByUsernameNotLike(String user)；
+OrderBy => 等价于 SQL 中的 "order by"，例如： findByUsernameOrderBySalaryAsc(String user)；
+Not => 等价于 SQL 中的 "！ ="，例如： findByUsernameNot(String user)；
+In => 等价于 SQL 中的 "in"，例如： findByUsernameIn(Collection userList) ，方法的参数可以是 Collection 类型，也可以是数组或者不定长参数；
+NotIn => 等价于 SQL 中的 "not in"，例如： findByUsernameNotIn(Collection userList) ，方法的参数可以是 Collection 类型，也可以是数组或者不定长参数；
+创建一个按单字段排序的Sort对象: new Sort(Sort.Direction.DESC, "description").and(new Sort(Sort.Direction.ASC, "id"))

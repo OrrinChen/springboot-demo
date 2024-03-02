@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.java.mapper.Formtable_main_3Mapper" >
+  <resultMap id="BaseResultMap" type="cn.java.entity.Formtable_main_3" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="requestId" property="requestid" jdbcType="INTEGER" />
+    <result column="resourceiId" property="resourceiid" jdbcType="INTEGER" />
+    <result column="departmentId" property="departmentid" jdbcType="INTEGER" />
+    <result column="newLeaveType" property="newleavetype" jdbcType="INTEGER" />
+    <result column="fromDate" property="fromdate" jdbcType="CHAR" />
+    <result column="fromTime" property="fromtime" jdbcType="CHAR" />
+    <result column="toDate" property="todate" jdbcType="CHAR" />
+    <result column="toTime" property="totime" jdbcType="CHAR" />
+    <result column="leaveDays" property="leavedays" jdbcType="DECIMAL" />
+    <result column="vacationInfo" property="vacationinfo" jdbcType="VARCHAR" />
+    <result column="ksrqsj" property="ksrqsj" jdbcType="VARCHAR" />
+    <result column="jsrqsj" property="jsrqsj" jdbcType="VARCHAR" />
+    <result column="qjts" property="qjts" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, requestId, resourceiId, departmentId, newLeaveType, fromDate, fromTime, toDate, 
+    toTime, leaveDays, vacationInfo, ksrqsj, jsrqsj, qjts
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from formtable_main_3
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectNextMaxById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select TOP(1)
+    <include refid="Base_Column_List" />
+    from formtable_main_3
+    where id > #{id,jdbcType=INTEGER} order by id asc
+  </select>
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from formtable_main_3
+    where id > #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from formtable_main_3
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from formtable_main_3
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.java.entity.Formtable_main_3" >
+    insert into formtable_main_3 (id, requestId, resourceiId, 
+      departmentId, newLeaveType, fromDate, 
+      fromTime, toDate, toTime, leaveDays, 
+      vacationInfo, ksrqsj, jsrqsj, 
+      qjts)
+    values (#{id,jdbcType=INTEGER}, #{requestid,jdbcType=INTEGER}, #{resourceiid,jdbcType=INTEGER}, 
+      #{departmentid,jdbcType=INTEGER}, #{newleavetype,jdbcType=INTEGER}, #{fromdate,jdbcType=CHAR}, 
+      #{fromtime,jdbcType=CHAR}, #{todate,jdbcType=CHAR}, #{totime,jdbcType=CHAR}, #{leavedays,jdbcType=DECIMAL}, 
+      #{vacationinfo,jdbcType=VARCHAR}, #{ksrqsj,jdbcType=VARCHAR}, #{jsrqsj,jdbcType=VARCHAR}, 
+      #{qjts,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.java.entity.Formtable_main_3" >
+    insert into formtable_main_3
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="requestid != null" >
+        requestId,
+      </if>
+      <if test="resourceiid != null" >
+        resourceiId,
+      </if>
+      <if test="departmentid != null" >
+        departmentId,
+      </if>
+      <if test="newleavetype != null" >
+        newLeaveType,
+      </if>
+      <if test="fromdate != null" >
+        fromDate,
+      </if>
+      <if test="fromtime != null" >
+        fromTime,
+      </if>
+      <if test="todate != null" >
+        toDate,
+      </if>
+      <if test="totime != null" >
+        toTime,
+      </if>
+      <if test="leavedays != null" >
+        leaveDays,
+      </if>
+      <if test="vacationinfo != null" >
+        vacationInfo,
+      </if>
+      <if test="ksrqsj != null" >
+        ksrqsj,
+      </if>
+      <if test="jsrqsj != null" >
+        jsrqsj,
+      </if>
+      <if test="qjts != null" >
+        qjts,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="requestid != null" >
+        #{requestid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceiid != null" >
+        #{resourceiid,jdbcType=INTEGER},
+      </if>
+      <if test="departmentid != null" >
+        #{departmentid,jdbcType=INTEGER},
+      </if>
+      <if test="newleavetype != null" >
+        #{newleavetype,jdbcType=INTEGER},
+      </if>
+      <if test="fromdate != null" >
+        #{fromdate,jdbcType=CHAR},
+      </if>
+      <if test="fromtime != null" >
+        #{fromtime,jdbcType=CHAR},
+      </if>
+      <if test="todate != null" >
+        #{todate,jdbcType=CHAR},
+      </if>
+      <if test="totime != null" >
+        #{totime,jdbcType=CHAR},
+      </if>
+      <if test="leavedays != null" >
+        #{leavedays,jdbcType=DECIMAL},
+      </if>
+      <if test="vacationinfo != null" >
+        #{vacationinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ksrqsj != null" >
+        #{ksrqsj,jdbcType=VARCHAR},
+      </if>
+      <if test="jsrqsj != null" >
+        #{jsrqsj,jdbcType=VARCHAR},
+      </if>
+      <if test="qjts != null" >
+        #{qjts,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.java.entity.Formtable_main_3" >
+    update formtable_main_3
+    <set >
+      <if test="requestid != null" >
+        requestId = #{requestid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceiid != null" >
+        resourceiId = #{resourceiid,jdbcType=INTEGER},
+      </if>
+      <if test="departmentid != null" >
+        departmentId = #{departmentid,jdbcType=INTEGER},
+      </if>
+      <if test="newleavetype != null" >
+        newLeaveType = #{newleavetype,jdbcType=INTEGER},
+      </if>
+      <if test="fromdate != null" >
+        fromDate = #{fromdate,jdbcType=CHAR},
+      </if>
+      <if test="fromtime != null" >
+        fromTime = #{fromtime,jdbcType=CHAR},
+      </if>
+      <if test="todate != null" >
+        toDate = #{todate,jdbcType=CHAR},
+      </if>
+      <if test="totime != null" >
+        toTime = #{totime,jdbcType=CHAR},
+      </if>
+      <if test="leavedays != null" >
+        leaveDays = #{leavedays,jdbcType=DECIMAL},
+      </if>
+      <if test="vacationinfo != null" >
+        vacationInfo = #{vacationinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ksrqsj != null" >
+        ksrqsj = #{ksrqsj,jdbcType=VARCHAR},
+      </if>
+      <if test="jsrqsj != null" >
+        jsrqsj = #{jsrqsj,jdbcType=VARCHAR},
+      </if>
+      <if test="qjts != null" >
+        qjts = #{qjts,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.java.entity.Formtable_main_3" >
+    update formtable_main_3
+    set requestId = #{requestid,jdbcType=INTEGER},
+      resourceiId = #{resourceiid,jdbcType=INTEGER},
+      departmentId = #{departmentid,jdbcType=INTEGER},
+      newLeaveType = #{newleavetype,jdbcType=INTEGER},
+      fromDate = #{fromdate,jdbcType=CHAR},
+      fromTime = #{fromtime,jdbcType=CHAR},
+      toDate = #{todate,jdbcType=CHAR},
+      toTime = #{totime,jdbcType=CHAR},
+      leaveDays = #{leavedays,jdbcType=DECIMAL},
+      vacationInfo = #{vacationinfo,jdbcType=VARCHAR},
+      ksrqsj = #{ksrqsj,jdbcType=VARCHAR},
+      jsrqsj = #{jsrqsj,jdbcType=VARCHAR},
+      qjts = #{qjts,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.java.mapper.Workflow_requestbaseMapper" >
+  <resultMap id="BaseResultMap" type="cn.java.entity.Workflow_requestbase" >
+    <result column="requestid" property="requestid" jdbcType="INTEGER" />
+    <result column="workflowid" property="workflowid" jdbcType="INTEGER" />
+    <result column="lastnodeid" property="lastnodeid" jdbcType="INTEGER" />
+    <result column="lastnodetype" property="lastnodetype" jdbcType="CHAR" />
+    <result column="currentnodeid" property="currentnodeid" jdbcType="INTEGER" />
+    <result column="currentnodetype" property="currentnodetype" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="passedgroups" property="passedgroups" jdbcType="INTEGER" />
+    <result column="totalgroups" property="totalgroups" jdbcType="INTEGER" />
+    <result column="requestname" property="requestname" jdbcType="VARCHAR" />
+    <result column="creater" property="creater" jdbcType="INTEGER" />
+    <result column="createdate" property="createdate" jdbcType="CHAR" />
+    <result column="createtime" property="createtime" jdbcType="CHAR" />
+    <result column="lastoperator" property="lastoperator" jdbcType="INTEGER" />
+    <result column="lastoperatedate" property="lastoperatedate" jdbcType="CHAR" />
+    <result column="lastoperatetime" property="lastoperatetime" jdbcType="CHAR" />
+    <result column="deleted" property="deleted" jdbcType="TINYINT" />
+    <result column="creatertype" property="creatertype" jdbcType="INTEGER" />
+    <result column="lastoperatortype" property="lastoperatortype" jdbcType="INTEGER" />
+    <result column="nodepasstime" property="nodepasstime" jdbcType="DOUBLE" />
+    <result column="nodelefttime" property="nodelefttime" jdbcType="DOUBLE" />
+    <result column="requestlevel" property="requestlevel" jdbcType="INTEGER" />
+    <result column="requestmark" property="requestmark" jdbcType="VARCHAR" />
+    <result column="messageType" property="messagetype" jdbcType="INTEGER" />
+    <result column="mainRequestId" property="mainrequestid" jdbcType="INTEGER" />
+    <result column="currentstatus" property="currentstatus" jdbcType="INTEGER" />
+    <result column="laststatus" property="laststatus" jdbcType="VARCHAR" />
+    <result column="ismultiprint" property="ismultiprint" jdbcType="INTEGER" />
+    <result column="chatsType" property="chatstype" jdbcType="INTEGER" />
+    <result column="ecology_pinyin_search" property="ecologyPinyinSearch" jdbcType="VARCHAR" />
+    <result column="requestnamenew" property="requestnamenew" jdbcType="VARCHAR" />
+    <result column="formsignaturemd5" property="formsignaturemd5" jdbcType="VARCHAR" />
+    <result column="dataaggregated" property="dataaggregated" jdbcType="CHAR" />
+    <result column="secLevel" property="seclevel" jdbcType="CHAR" />
+    <result column="secdocid" property="secdocid" jdbcType="VARCHAR" />
+    <result column="remindTypes" property="remindtypes" jdbcType="VARCHAR" />
+    <result column="lastFeedBackDate" property="lastfeedbackdate" jdbcType="CHAR" />
+    <result column="lastFeedBackTime" property="lastfeedbacktime" jdbcType="CHAR" />
+    <result column="lastfeedbackoperator" property="lastfeedbackoperator" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.java.entity.Workflow_requestbaseWithBLOBs" extends="BaseResultMap" >
+    <result column="docids" property="docids" jdbcType="LONGVARCHAR" />
+    <result column="crmids" property="crmids" jdbcType="LONGVARCHAR" />
+    <result column="hrmids" property="hrmids" jdbcType="LONGVARCHAR" />
+    <result column="prjids" property="prjids" jdbcType="LONGVARCHAR" />
+    <result column="cptids" property="cptids" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List">
+  	requestid, workflowid, lastnodeid, 
+      lastnodetype, currentnodeid, currentnodetype, 
+      status, passedgroups, totalgroups, 
+      requestname, creater, createdate, 
+      createtime, lastoperator, lastoperatedate, 
+      lastoperatetime, deleted, creatertype, 
+      lastoperatortype, nodepasstime, nodelefttime, 
+      requestlevel, requestmark, messageType, 
+      mainRequestId, currentstatus, laststatus, 
+      ismultiprint, chatsType, ecology_pinyin_search, 
+      requestnamenew, formsignaturemd5, dataaggregated, 
+      secLevel, secdocid, remindTypes, 
+      lastFeedBackDate, lastFeedBackTime, lastfeedbackoperator
+  </sql>
+  <sql id="Blob_Column_List" >
+    docids, crmids, hrmids, prjids, cptids
+  </sql>
+  <insert id="insert" parameterType="cn.java.entity.Workflow_requestbaseWithBLOBs" >
+    insert into workflow_requestbase (requestid, workflowid, lastnodeid, 
+      lastnodetype, currentnodeid, currentnodetype, 
+      status, passedgroups, totalgroups, 
+      requestname, creater, createdate, 
+      createtime, lastoperator, lastoperatedate, 
+      lastoperatetime, deleted, creatertype, 
+      lastoperatortype, nodepasstime, nodelefttime, 
+      requestlevel, requestmark, messageType, 
+      mainRequestId, currentstatus, laststatus, 
+      ismultiprint, chatsType, ecology_pinyin_search, 
+      requestnamenew, formsignaturemd5, dataaggregated, 
+      secLevel, secdocid, remindTypes, 
+      lastFeedBackDate, lastFeedBackTime, lastfeedbackoperator, 
+      docids, crmids, hrmids, 
+      prjids, cptids)
+    values (#{requestid,jdbcType=INTEGER}, #{workflowid,jdbcType=INTEGER}, #{lastnodeid,jdbcType=INTEGER}, 
+      #{lastnodetype,jdbcType=CHAR}, #{currentnodeid,jdbcType=INTEGER}, #{currentnodetype,jdbcType=CHAR}, 
+      #{status,jdbcType=VARCHAR}, #{passedgroups,jdbcType=INTEGER}, #{totalgroups,jdbcType=INTEGER}, 
+      #{requestname,jdbcType=VARCHAR}, #{creater,jdbcType=INTEGER}, #{createdate,jdbcType=CHAR}, 
+      #{createtime,jdbcType=CHAR}, #{lastoperator,jdbcType=INTEGER}, #{lastoperatedate,jdbcType=CHAR}, 
+      #{lastoperatetime,jdbcType=CHAR}, #{deleted,jdbcType=TINYINT}, #{creatertype,jdbcType=INTEGER}, 
+      #{lastoperatortype,jdbcType=INTEGER}, #{nodepasstime,jdbcType=DOUBLE}, #{nodelefttime,jdbcType=DOUBLE}, 
+      #{requestlevel,jdbcType=INTEGER}, #{requestmark,jdbcType=VARCHAR}, #{messagetype,jdbcType=INTEGER}, 
+      #{mainrequestid,jdbcType=INTEGER}, #{currentstatus,jdbcType=INTEGER}, #{laststatus,jdbcType=VARCHAR}, 
+      #{ismultiprint,jdbcType=INTEGER}, #{chatstype,jdbcType=INTEGER}, #{ecologyPinyinSearch,jdbcType=VARCHAR}, 
+      #{requestnamenew,jdbcType=VARCHAR}, #{formsignaturemd5,jdbcType=VARCHAR}, #{dataaggregated,jdbcType=CHAR}, 
+      #{seclevel,jdbcType=CHAR}, #{secdocid,jdbcType=VARCHAR}, #{remindtypes,jdbcType=VARCHAR}, 
+      #{lastfeedbackdate,jdbcType=CHAR}, #{lastfeedbacktime,jdbcType=CHAR}, #{lastfeedbackoperator,jdbcType=INTEGER}, 
+      #{docids,jdbcType=LONGVARCHAR}, #{crmids,jdbcType=LONGVARCHAR}, #{hrmids,jdbcType=LONGVARCHAR}, 
+      #{prjids,jdbcType=LONGVARCHAR}, #{cptids,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.java.entity.Workflow_requestbaseWithBLOBs" >
+    insert into workflow_requestbase
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="requestid != null" >
+        requestid,
+      </if>
+      <if test="workflowid != null" >
+        workflowid,
+      </if>
+      <if test="lastnodeid != null" >
+        lastnodeid,
+      </if>
+      <if test="lastnodetype != null" >
+        lastnodetype,
+      </if>
+      <if test="currentnodeid != null" >
+        currentnodeid,
+      </if>
+      <if test="currentnodetype != null" >
+        currentnodetype,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="passedgroups != null" >
+        passedgroups,
+      </if>
+      <if test="totalgroups != null" >
+        totalgroups,
+      </if>
+      <if test="requestname != null" >
+        requestname,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="lastoperator != null" >
+        lastoperator,
+      </if>
+      <if test="lastoperatedate != null" >
+        lastoperatedate,
+      </if>
+      <if test="lastoperatetime != null" >
+        lastoperatetime,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="creatertype != null" >
+        creatertype,
+      </if>
+      <if test="lastoperatortype != null" >
+        lastoperatortype,
+      </if>
+      <if test="nodepasstime != null" >
+        nodepasstime,
+      </if>
+      <if test="nodelefttime != null" >
+        nodelefttime,
+      </if>
+      <if test="requestlevel != null" >
+        requestlevel,
+      </if>
+      <if test="requestmark != null" >
+        requestmark,
+      </if>
+      <if test="messagetype != null" >
+        messageType,
+      </if>
+      <if test="mainrequestid != null" >
+        mainRequestId,
+      </if>
+      <if test="currentstatus != null" >
+        currentstatus,
+      </if>
+      <if test="laststatus != null" >
+        laststatus,
+      </if>
+      <if test="ismultiprint != null" >
+        ismultiprint,
+      </if>
+      <if test="chatstype != null" >
+        chatsType,
+      </if>
+      <if test="ecologyPinyinSearch != null" >
+        ecology_pinyin_search,
+      </if>
+      <if test="requestnamenew != null" >
+        requestnamenew,
+      </if>
+      <if test="formsignaturemd5 != null" >
+        formsignaturemd5,
+      </if>
+      <if test="dataaggregated != null" >
+        dataaggregated,
+      </if>
+      <if test="seclevel != null" >
+        secLevel,
+      </if>
+      <if test="secdocid != null" >
+        secdocid,
+      </if>
+      <if test="remindtypes != null" >
+        remindTypes,
+      </if>
+      <if test="lastfeedbackdate != null" >
+        lastFeedBackDate,
+      </if>
+      <if test="lastfeedbacktime != null" >
+        lastFeedBackTime,
+      </if>
+      <if test="lastfeedbackoperator != null" >
+        lastfeedbackoperator,
+      </if>
+      <if test="docids != null" >
+        docids,
+      </if>
+      <if test="crmids != null" >
+        crmids,
+      </if>
+      <if test="hrmids != null" >
+        hrmids,
+      </if>
+      <if test="prjids != null" >
+        prjids,
+      </if>
+      <if test="cptids != null" >
+        cptids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="requestid != null" >
+        #{requestid,jdbcType=INTEGER},
+      </if>
+      <if test="workflowid != null" >
+        #{workflowid,jdbcType=INTEGER},
+      </if>
+      <if test="lastnodeid != null" >
+        #{lastnodeid,jdbcType=INTEGER},
+      </if>
+      <if test="lastnodetype != null" >
+        #{lastnodetype,jdbcType=CHAR},
+      </if>
+      <if test="currentnodeid != null" >
+        #{currentnodeid,jdbcType=INTEGER},
+      </if>
+      <if test="currentnodetype != null" >
+        #{currentnodetype,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="passedgroups != null" >
+        #{passedgroups,jdbcType=INTEGER},
+      </if>
+      <if test="totalgroups != null" >
+        #{totalgroups,jdbcType=INTEGER},
+      </if>
+      <if test="requestname != null" >
+        #{requestname,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=CHAR},
+      </if>
+      <if test="lastoperator != null" >
+        #{lastoperator,jdbcType=INTEGER},
+      </if>
+      <if test="lastoperatedate != null" >
+        #{lastoperatedate,jdbcType=CHAR},
+      </if>
+      <if test="lastoperatetime != null" >
+        #{lastoperatetime,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="creatertype != null" >
+        #{creatertype,jdbcType=INTEGER},
+      </if>
+      <if test="lastoperatortype != null" >
+        #{lastoperatortype,jdbcType=INTEGER},
+      </if>
+      <if test="nodepasstime != null" >
+        #{nodepasstime,jdbcType=DOUBLE},
+      </if>
+      <if test="nodelefttime != null" >
+        #{nodelefttime,jdbcType=DOUBLE},
+      </if>
+      <if test="requestlevel != null" >
+        #{requestlevel,jdbcType=INTEGER},
+      </if>
+      <if test="requestmark != null" >
+        #{requestmark,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetype != null" >
+        #{messagetype,jdbcType=INTEGER},
+      </if>
+      <if test="mainrequestid != null" >
+        #{mainrequestid,jdbcType=INTEGER},
+      </if>
+      <if test="currentstatus != null" >
+        #{currentstatus,jdbcType=INTEGER},
+      </if>
+      <if test="laststatus != null" >
+        #{laststatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ismultiprint != null" >
+        #{ismultiprint,jdbcType=INTEGER},
+      </if>
+      <if test="chatstype != null" >
+        #{chatstype,jdbcType=INTEGER},
+      </if>
+      <if test="ecologyPinyinSearch != null" >
+        #{ecologyPinyinSearch,jdbcType=VARCHAR},
+      </if>
+      <if test="requestnamenew != null" >
+        #{requestnamenew,jdbcType=VARCHAR},
+      </if>
+      <if test="formsignaturemd5 != null" >
+        #{formsignaturemd5,jdbcType=VARCHAR},
+      </if>
+      <if test="dataaggregated != null" >
+        #{dataaggregated,jdbcType=CHAR},
+      </if>
+      <if test="seclevel != null" >
+        #{seclevel,jdbcType=CHAR},
+      </if>
+      <if test="secdocid != null" >
+        #{secdocid,jdbcType=VARCHAR},
+      </if>
+      <if test="remindtypes != null" >
+        #{remindtypes,jdbcType=VARCHAR},
+      </if>
+      <if test="lastfeedbackdate != null" >
+        #{lastfeedbackdate,jdbcType=CHAR},
+      </if>
+      <if test="lastfeedbacktime != null" >
+        #{lastfeedbacktime,jdbcType=CHAR},
+      </if>
+      <if test="lastfeedbackoperator != null" >
+        #{lastfeedbackoperator,jdbcType=INTEGER},
+      </if>
+      <if test="docids != null" >
+        #{docids,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="crmids != null" >
+        #{crmids,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hrmids != null" >
+        #{hrmids,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="prjids != null" >
+        #{prjids,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="cptids != null" >
+        #{cptids,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectByRequestid" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from workflow_requestbase
+    where requestid = #{id,jdbcType=INTEGER}
+  </select>
+  <!-- and datetime > #{arg1,jdbcType=CHAR}
+  		
+	and lastoperatedate > '2022-07-17'
+	and #{arg1,jdbcType=CHAR} > lastoperatedate
+   -->
+  <select id="selectWorkflowByIdAndTime" resultMap="ResultMapWithBLOBs" parameterType="Object" >
+    select top 1
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" /> 
+    from 
+	<!-- (select concat(lastoperatedate,' ',lastoperatetime) as datetime,* -->
+	(select (lastoperatedate+' '+lastoperatetime) as datetime,*
+	from workflow_requestbase
+	where 
+	workflowid=#{arg0,jdbcType=INTEGER} 
+	and currentnodetype='3') t 
+	where t.datetime > #{arg1,jdbcType=CHAR}
+	order by datetime asc    
+    
+  </select>
+</mapper>
